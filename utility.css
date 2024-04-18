@@ -1,0 +1,32 @@
+.flex{
+    display:flex;
+}
+.bg_grey{
+    background-color: #131313;
+}
+.bg_g1{
+    background-color: #0c0c0c; 
+}
+/* Width and height for the scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #161616; /* Dark background color */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #2e2e2e; /* Darker color for the handle */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3d3d3d; /* Lighter color on hover */
+  }
+ 
+  

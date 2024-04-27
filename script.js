@@ -4,7 +4,7 @@ let songs;
 let currFolder;
 async function getsongs(folder){
     currFolder=folder;
-    let a=await fetch(`/${folder}/`)
+    let a=await fetch(`/../${folder}/`)
     let response=await a.text();
     console.log(response)
     let div=document.createElement("div")
@@ -46,7 +46,7 @@ async function getsongs(folder){
      
 }   
 const playmusic=(track,pause=false)=>{
-    currentsong.src=`/${currFolder}/`+track
+    currentsong.src=`/../${currFolder}/`+track
     if(!pause){
         currentsong.play();
         play.src="pause.svg"
@@ -73,7 +73,7 @@ function convertSecondsToMinutesSeconds(seconds) {
     return formattedTime;
 }
 async function displayAlbums(){
-    let a=await fetch(`/songs/`)
+    let a=await fetch(`/../songs/`)
     let response=await a.text();
     let div=document.createElement("div")
     div.innerHTML=response;
@@ -87,7 +87,7 @@ async function displayAlbums(){
      if(e.href.includes("/songs"))
      {
         let folder=e.href.split("/").slice(-2)[0]
-        let a=await fetch(`/songs/${folder}/info.json`)
+        let a=await fetch(`/../songs/${folder}/info.json`)
         let response=await a.json();
         cardcontainer.innerHTML=cardcontainer.innerHTML + ` <div data-folder="${folder}" class="card">
         <div class="play">
@@ -120,7 +120,7 @@ async function displayAlbums(){
 }
 
 async function main(){
-    await getsongs("songs/angry")
+    await getsongs("/../songs/angry")
     console.log(songs)
     playmusic(songs[0],true)
     displayAlbums();
